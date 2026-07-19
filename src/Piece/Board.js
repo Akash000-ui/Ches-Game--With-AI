@@ -45,7 +45,8 @@ class Board {
         return this.board[row][col];
     }
 
-    updatePiece(fr, fc, tr, tc) {
+
+    makeMove(fr, fc, tr, tc) {
         const piece = this.board[fr][fc];
 
         this.board[tr][tc] = piece;
@@ -54,6 +55,24 @@ class Board {
         piece.row = tr;
         piece.col = tc;
         piece.hasMoved = true;
+
+    }
+
+    clone() {
+        const newBoard = new Board();
+
+        newBoard.board = this.board.map(row =>
+            row.map(piece => {
+                if (piece === null) return null;
+
+                return Object.assign(
+                    Object.create(Object.getPrototypeOf(piece)),
+                    piece
+                );
+            })
+        );
+
+        return newBoard;
     }
 }
 

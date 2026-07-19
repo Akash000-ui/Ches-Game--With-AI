@@ -2,7 +2,7 @@ import Square from "./Square";
 
 function ChessBoard({
     board,
-    selectedSquare,
+    selectedPiece,
     possibleMoves,
     onSquareClick,
     setPossibleMoves
@@ -19,9 +19,9 @@ function ChessBoard({
                     const isLight = (r + c) % 2 === 0;
 
                     const isSelected =
-                        selectedSquare &&
-                        selectedSquare.row === r &&
-                        selectedSquare.col === c;
+                        selectedPiece &&
+                        selectedPiece.row === r &&
+                        selectedPiece.col === c;
 
                     const isPossibleMove =
                         possibleMoves.some(

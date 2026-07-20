@@ -1,30 +1,27 @@
 import Square from "./Square";
 
 function ChessBoard({
-    board,
-    selectedPiece,
-    possibleMoves,
-    onSquareClick,
-    setPossibleMoves
+    game,
+    onSquareClick
 }) {
+
 
     return (
         <div className="board">
-            {console.log("FIRST")}
 
-            {board.getSquares().map((row, r) =>
+            {game.board.getSquares().map((row, r) =>
 
                 row.map((piece, c) => {
 
                     const isLight = (r + c) % 2 === 0;
 
                     const isSelected =
-                        selectedPiece &&
-                        selectedPiece.row === r &&
-                        selectedPiece.col === c;
+                        game.selectedPiece &&
+                        game.selectedPiece.row === r &&
+                        game.selectedPiece.col === c;
 
                     const isPossibleMove =
-                        possibleMoves.some(
+                        game.possibleMoves.some(
                             move =>
                                 move.row === r &&
                                 move.col === c
@@ -40,8 +37,7 @@ function ChessBoard({
                             isSelected={isSelected}
                             isPossibleMove={isPossibleMove}
                             onClick={onSquareClick}
-                            board={board}
-                            setPossibleMoves={setPossibleMoves}
+                            board={game.board}
                         />
                     );
                 })

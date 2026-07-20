@@ -1,4 +1,4 @@
-import { Board } from "./Board";
+import { Board } from "../Board";
 import { Peice } from "./Peice";
 
 export class Knight extends Peice {
@@ -32,7 +32,7 @@ export class Knight extends Peice {
                     moves.push({ row: r, col: c });
                 } else {
                     if (board.getPiece(r, c).isWhite !== this.isWhite) {
-                        board.push({ row: r, col: c })
+                        moves.push({ row: r, col: c })
                     }
                 }
             }

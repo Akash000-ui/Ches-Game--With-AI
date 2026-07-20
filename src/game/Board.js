@@ -1,9 +1,9 @@
-import { Bishop } from "./Bishop";
-import { King } from "./King";
-import { Knight } from "./Knight";
-import { Pawn } from "./Pawn";
-import { Queen } from "./Queen";
-import { Rook } from "./Rook";
+import { Bishop } from "./Piece/Bishop";
+import { King } from "./Piece/King";
+import { Knight } from "./Piece/Knight";
+import { Pawn } from "./Piece/Pawn";
+import { Queen } from "./Piece/Queen";
+import { Rook } from "./Piece/Rook";
 
 class Board {
     coins = [
@@ -73,6 +73,12 @@ class Board {
         );
 
         return newBoard;
+    }
+
+    getAllLegalMoves(isWhite) {
+
+
+
     }
 }
 
